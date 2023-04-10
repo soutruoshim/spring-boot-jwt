@@ -1,4 +1,4 @@
-package com.bezkoder.spring.jwt.mongodb.payload.request;
+package com.srhdp.payload.request;
 
 import javax.validation.constraints.NotBlank;
 

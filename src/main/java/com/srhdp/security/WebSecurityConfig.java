@@ -1,5 +1,8 @@
-package com.bezkoder.spring.jwt.mongodb.security;
+package com.srhdp.security;
 
+import com.srhdp.security.jwt.AuthEntryPointJwt;
+import com.srhdp.security.jwt.AuthTokenFilter;
+import com.srhdp.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,10 +20,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.bezkoder.spring.jwt.mongodb.security.jwt.AuthEntryPointJwt;
-import com.bezkoder.spring.jwt.mongodb.security.jwt.AuthTokenFilter;
-import com.bezkoder.spring.jwt.mongodb.security.services.UserDetailsServiceImpl;
-
 @Configuration
 //@EnableWebSecurity
 @EnableGlobalMethodSecurity(
@@ -29,7 +28,7 @@ import com.bezkoder.spring.jwt.mongodb.security.services.UserDetailsServiceImpl;
 		prePostEnabled = true)
 public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 	@Autowired
-	UserDetailsServiceImpl userDetailsService;
+    UserDetailsServiceImpl userDetailsService;
 
 	@Autowired
 	private AuthEntryPointJwt unauthorizedHandler;

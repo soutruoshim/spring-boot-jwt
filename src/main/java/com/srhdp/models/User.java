@@ -1,4 +1,4 @@
-package com.bezkoder.spring.jwt.mongodb.models;
+package com.srhdp.models;
 
 import java.util.HashSet;
 import java.util.Set;

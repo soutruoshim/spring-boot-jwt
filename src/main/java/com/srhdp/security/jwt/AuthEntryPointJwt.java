@@ -1,4 +1,4 @@
-package com.bezkoder.spring.jwt.mongodb.security.jwt;
+package com.srhdp.security.jwt;
 
 import java.io.IOException;
 

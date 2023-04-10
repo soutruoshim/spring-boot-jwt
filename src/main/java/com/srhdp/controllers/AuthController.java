@@ -1,4 +1,4 @@
-package com.bezkoder.spring.jwt.mongodb.controllers;
+package com.srhdp.controllers;
 
 import java.util.HashSet;
 import java.util.List;
@@ -7,6 +7,9 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import com.srhdp.models.ERole;
+import com.srhdp.models.Role;
+import com.srhdp.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,17 +23,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bezkoder.spring.jwt.mongodb.models.ERole;
-import com.bezkoder.spring.jwt.mongodb.models.Role;
-import com.bezkoder.spring.jwt.mongodb.models.User;
-import com.bezkoder.spring.jwt.mongodb.payload.request.LoginRequest;
-import com.bezkoder.spring.jwt.mongodb.payload.request.SignupRequest;
-import com.bezkoder.spring.jwt.mongodb.payload.response.JwtResponse;
-import com.bezkoder.spring.jwt.mongodb.payload.response.MessageResponse;
-import com.bezkoder.spring.jwt.mongodb.repository.RoleRepository;
-import com.bezkoder.spring.jwt.mongodb.repository.UserRepository;
-import com.bezkoder.spring.jwt.mongodb.security.jwt.JwtUtils;
-import com.bezkoder.spring.jwt.mongodb.security.services.UserDetailsImpl;
+import com.srhdp.payload.request.LoginRequest;
+import com.srhdp.payload.request.SignupRequest;
+import com.srhdp.payload.response.JwtResponse;
+import com.srhdp.payload.response.MessageResponse;
+import com.srhdp.repository.RoleRepository;
+import com.srhdp.repository.UserRepository;
+import com.srhdp.security.jwt.JwtUtils;
+import com.srhdp.security.services.UserDetailsImpl;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -87,7 +87,7 @@ public class AuthController {
 		}
 
 		// Create new user's account
-		User user = new User(signUpRequest.getUsername(), 
+		User user = new User(signUpRequest.getUsername(),
 							 signUpRequest.getEmail(),
 							 encoder.encode(signUpRequest.getPassword()));
 

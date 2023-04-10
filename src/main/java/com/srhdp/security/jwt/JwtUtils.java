@@ -1,29 +1,33 @@
-package com.bezkoder.spring.jwt.mongodb.security.jwt;
+package com.srhdp.security.jwt;
 
 import java.util.Date;
 
+import com.srhdp.security.services.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import com.bezkoder.spring.jwt.mongodb.security.services.UserDetailsImpl;
 import io.jsonwebtoken.*;
+
+import javax.crypto.spec.SecretKeySpec;
 
 @Component
 public class JwtUtils {
 	private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-	@Value("${bezkoder.app.jwtSecret}")
+	@Value("${srhdp.app.jwtSecret}")
 	private String jwtSecret;
 
-	@Value("${bezkoder.app.jwtExpirationMs}")
+	@Value("${srhdp.app.jwtExpirationMs}")
 	private int jwtExpirationMs;
 
 	public String generateJwtToken(Authentication authentication) {
 
 		UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
+
+        System.out.println(jwtSecret);
 
 		return Jwts.builder()
 				.setSubject((userPrincipal.getUsername()))

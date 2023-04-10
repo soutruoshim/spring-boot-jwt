@@ -1,4 +1,4 @@
-package com.bezkoder.spring.jwt.mongodb.payload.response;
+package com.srhdp.payload.response;
 
 public class MessageResponse {
 	private String message;
